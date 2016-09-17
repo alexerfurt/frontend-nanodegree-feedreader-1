@@ -86,7 +86,16 @@ $(function() {
          */
     describe('Initial Entries', function() {
 
-      
+      beforeEach(function(done) {
+        loadFeed(0, function(){
+          done();          
+        });
+      }, 1000);
+
+      it('should at least have one entry', function() {
+        var entries = $('.feed').find('.entry').length;
+        expect(entries).not.toBe(0);
+      });
 
     });
     /* TODO: Write a new test suite named "New Feed Selection"
