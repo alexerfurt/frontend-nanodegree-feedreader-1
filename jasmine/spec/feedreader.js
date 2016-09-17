@@ -88,7 +88,7 @@ $(function() {
 
       beforeEach(function(done) {
         loadFeed(0, function(){
-          done();          
+          done();
         });
       }, 1000);
 
@@ -105,6 +105,26 @@ $(function() {
          * Remember, loadFeed() is asynchronous.
          */
     describe('New Feed Selection', function() {
+      //declare variables to compare two values later on
+      var firstEntry,
+          secondEntry;
+          
+      //before test, load the feed with allFeeds[0] and grab the headline of first article
+      beforeEach(function(done) {
+        loadFeed(0, function(){
+          done();
+        });
+        firstEntry = $('.feed').find('.entry').find('h2')[0].innerHTML;
+      });
 
+      //load the feed with allFeeds[1] grab the headline of first article
+      it('new feed load should have changes in content', function(done) {
+        loadFeed(1, function(){
+          secondEntry = $('.feed').find('.entry').find('h2')[0].innerHTML;
+          done();
+        });
+        //test if headline of new first article has changed, i.e. != old headline
+        expect(secondEntry).not.toBe(firstEntry);
+      });
     });
 }());
