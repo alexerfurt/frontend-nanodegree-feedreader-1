@@ -8,4 +8,4 @@ This is a Udacity project that was used to train in JavaScript testing. For this
 
 ## How to run the application
 
-Simply clone the repo and start the app by opening index.html in your browser. Jasmine will run the test defined in 'feedreader.js' and show the results at the bottom of the index.html page. If everything is green (dots, text) and Jasmine indicates "7 specs, 0 failures", then all test have been successful.
+Simply clone the repo and start the app by opening index.html in your browser. Jasmine will run the test defined in 'feedreader.js' and show the results at the bottom of the index.html page. If everything is green (dots, text) and Jasmine indicates "7 specs, 0 failures", then all test have been successful. If any test fails, it will be marked as red including a more detailed error message by Jasmine.
