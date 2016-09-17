@@ -21,6 +21,7 @@ $(function() {
          * allFeeds in app.js to be an empty array and refresh the
          * page?
          */
+        //checks if allFeeds array is defined and not empty
         it('are defined', function() {
             expect(allFeeds).toBeDefined();
             expect(allFeeds.length).not.toBe(0);
@@ -30,6 +31,7 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
+         //checks if allFeeds' objects have all an url attribute that is defined and not empty
          it('URLs are defined', function() {
              for (i = 0; i < allFeeds.length; i++) {
                expect(allFeeds[i].url).toBeDefined();
@@ -41,6 +43,7 @@ $(function() {
           * in the allFeeds object and ensures it has a name defined
           * and that the name is not empty.
           */
+         //checks if allFeeds' objects have all a name attribute that is defined and not empty
          it('Names are defined', function() {
              for (i = 0; i < allFeeds.length; i++) {
                expect(allFeeds[i].name).toBeDefined();
@@ -58,6 +61,7 @@ $(function() {
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
+        // checks if body element has the menu-hidden class when DOM has loaded
         it('should be hidden by default', function() {
           expect(document.body.classList).toContain("menu-hidden");
         });
@@ -67,6 +71,7 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+        // checks if body's class attribute changes when menu icon is clicked
         it('should change visibility when clicked', function() {
           $('.menu-icon-link').trigger('click');
           expect(document.body.classList).not.toContain("menu-hidden");
@@ -85,13 +90,14 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
     describe('Initial Entries', function() {
-
+      //before test, load the feed with allFeeds[0]
       beforeEach(function(done) {
         loadFeed(0, function(){
           done();
         });
       }, 1000);
 
+      //test if articles are not empty
       it('should at least have one entry', function() {
         var entries = $('.feed').find('.entry').length;
         expect(entries).not.toBe(0);
@@ -108,7 +114,7 @@ $(function() {
       //declare variables to compare two values later on
       var firstEntry,
           secondEntry;
-          
+
       //before test, load the feed with allFeeds[0] and grab the headline of first article
       beforeEach(function(done) {
         loadFeed(0, function(){
